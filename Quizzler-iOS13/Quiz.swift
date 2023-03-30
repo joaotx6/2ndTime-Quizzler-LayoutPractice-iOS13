@@ -9,12 +9,13 @@
 import Foundation
 import UIKit
 
-struct quiz {
+struct Quiz {
     
     let quiz = [
-        "primeira questao",
-        "Segunda questao",
-        "Terceira questao"
+        ["primeira questao", "True"],
+        ["Segunda questao", "True"],
+        ["Terceira questao", "False"]
     ]
+    
 }
 

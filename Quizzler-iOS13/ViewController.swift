@@ -15,18 +15,41 @@ class ViewController: UIViewController {
     @IBOutlet weak var trueButton: UIButton!
     @IBOutlet weak var falseButton: UIButton!
     
-    let quizArray = quiz()
+    let quizArray = Quiz()
+    
+    var questionNumber = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        questionLabel.text = quizArray.quiz[1]
-        
+        updateUI()
     }
 
     @IBAction func buttonPressed(_ sender: UIButton) {
         
+        let actualAnswer = quizArray.quiz[questionNumber][1]
+        let userAnswer = sender.currentTitle
         
+        if userAnswer == actualAnswer {
+            print("Right")
+        } else {
+            print("Wrong")
+        }
+        
+        if questionNumber + 1 < quizArray.quiz.count {
+            questionNumber += 1
+        } else {
+            print("Out of index")
+            questionNumber = 0
+        }
+        
+        
+        updateUI()
+        
+    }
+    
+    func updateUI() {
+        questionLabel.text = quizArray.quiz[questionNumber][0]
     }
 
     
